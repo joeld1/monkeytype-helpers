@@ -1,0 +1,15 @@
+--- a/verify_overwrite_copy.py
++++ b/verify_overwrite_copy.py
+@@ -1,3 +1,11 @@
+ def add(a: int, b: int) -> int:
+-    """This is an improperly typed/annotated method with an incomplete docstr"""
++    """This is an improperly typed/annotated method with an incomplete docstr
++
++    :param a: 
++    :type a: int
++    :param b: 
++    :type b: int
++    :rtype: int
++
++    """
+     return a + b
