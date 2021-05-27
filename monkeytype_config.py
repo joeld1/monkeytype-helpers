@@ -12,4 +12,4 @@ class MyConfig(DefaultConfig):
 
 
 CONFIG = MyConfig()
-print("MonkeyType loaded configuration from monkeytype sandbox!")
+# print("MonkeyType loaded configuration from monkeytype sandbox!")
