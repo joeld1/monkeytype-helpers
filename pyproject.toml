@@ -8,6 +8,8 @@ authors = ["JD <10216562+joeld1@users.noreply.github.com>"]
 python = "^3.9"
 MonkeyType = "^21.5.0"
 pyment = {git = "https://github.com/dadadel/pyment.git"}
+black = "^21.5b2"
+isort = "^5.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
