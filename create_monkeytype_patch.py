@@ -147,11 +147,11 @@ def get_filepath(prompt=""):
     return filepath
 
 
-def get_directory_path(prompt=""):
+def get_directory_path(prompt="",initialdir=Path(__file__).parent.as_posix()):
     try:
         root = Tk()
         root.withdraw()
-        dir_path = filedialog.askdirectory(title=prompt, initialdir=Path(__file__).parent.as_posix())
+        dir_path = filedialog.askdirectory(title=prompt, initialdir=initialdir)
     except Exception as e:
         print(e)
         dir_path = ""
@@ -179,14 +179,14 @@ CONFIG = MyConfig()
 
 class MonkeytypeAssistant:
 
-    def __init__(self, root_dir=None):
+    def __init__(self, root_dir=None,init_dir:str=Path(__file__).parent.as_posix()):
         if root_dir is None:
-            root_dir = self.get_root_dir()
+            root_dir = self.get_root_dir(init_dir=init_dir)
         self.root_dir = Path(root_dir)
         self.cwd_into_root(root_dir)
         path_to_config = root_dir.joinpath("monkeytype_config.py").resolve()
         if not path_to_config.exists():
-            with open(path_to_config,'r',encoding='utf8') as f:
+            with open(path_to_config,'w',encoding='utf8') as f:
                 f.write(MONKEYTYPE_CONFIG_FILE)
         parents_dict, paths_to_modules = self.recursively_add_py_files_to_path(root_dir)
         self.parents_dict = parents_dict.copy()
@@ -200,9 +200,9 @@ class MonkeytypeAssistant:
         return rel_path_to_file
 
     @staticmethod
-    def get_root_dir():
+    def get_root_dir(init_dir:Optional[str]):
         prompt = "Select root dir that will contain monkeytype.sqlite3! This will be the pwd and the path to get relative roots from!"
-        root_dir = get_directory_path(prompt=prompt)
+        root_dir = get_directory_path(prompt=prompt,init_dir=init_dir)
         if root_dir:
             return Path(root_dir)
         else:
@@ -483,7 +483,7 @@ if __name__ == "__main__":
     first_line = False
     profile = "black"
     root_dir = None
-    monkeytype_assistant = MonkeytypeAssistant(root_dir=root_dir)
+    monkeytype_assistant = MonkeytypeAssistant(root_dir=root_dir,init_dir=script_ran_on.parent.as_posix())
 
     root_dir, module_path = get_module_path(monkeytype_assistant, script_ran_on)
     create_monkeytype_pyment_black_isort_patch(root_dir=root_dir, script_ran_on=script_ran_on, module_path=module_path,
