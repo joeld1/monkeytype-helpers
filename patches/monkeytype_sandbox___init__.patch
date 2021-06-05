@@ -1,0 +1,23 @@
+diff --git a/__init__.py b/__init__.py
+--- a/__init__.py
++++ b/__init__.py
+@@ -1,7 +1,16 @@
+-__version__ = '0.1.0'
++from typing import List, Tuple
+ 
++__version__ = "0.1.0"
+ 
+-def print_something_from_init_file(my_str):
+-    """This is found in the __init__.py file for the monkeytype_sandbox package"""
++
++def print_something_from_init_file(my_str: str) -> Tuple[List[str], range]:
++    """
++    This is found in the __init__.py file for the monkeytype_sandbox package
++
++    :param my_str:
++    :type my_str: str
++    :rtype: Tuple[List[str],range]
++
++    """
+     print([my_str] * 100)
+     return [my_str] * 20, range(20)

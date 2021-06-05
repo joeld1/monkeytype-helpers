@@ -1,0 +1,23 @@
+diff --git a/nested_script_imports.py b/nested_script_imports.py
+--- a/nested_script_imports.py
++++ b/nested_script_imports.py
+@@ -1,5 +1,16 @@
+ import os
++from typing import List
++
+ import black
+-def hello(word):
+-    """This is going to be imported by a nested_script"""
+-    return [f"hello {word}"]*1000
++
++
++def hello(word: str) -> List[str]:
++    """
++    This is going to be imported by a nested_script
++
++    :param word:
++    :type word: str
++    :rtype: List[str]
++
++    """
++    return [f"hello {word}"] * 1000

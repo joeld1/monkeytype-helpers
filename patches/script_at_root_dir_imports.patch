@@ -1,0 +1,20 @@
+diff --git a/script_at_root_dir_imports.py b/script_at_root_dir_imports.py
+--- a/script_at_root_dir_imports.py
++++ b/script_at_root_dir_imports.py
+@@ -1,4 +1,14 @@
+-def get_dict(list_of_items):
+-    """ This belongs to script_at_root_dir_imports.py"""
++from typing import Dict, List
++
++
++def get_dict(list_of_items: List[str]) -> Dict[str, int]:
++    """
++    This belongs to script_at_root_dir_imports.py
++
++    :param list_of_items:
++    :type list_of_items: List[str]
++    :rtype: Dict[str,int]
++
++    """
+     dict_to_return = {n: i for i, n in enumerate(list_of_items)}
+     return dict_to_return

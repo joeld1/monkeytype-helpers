@@ -1,0 +1,28 @@
+diff --git a/regular_module_imports.py b/regular_module_imports.py
+--- a/regular_module_imports.py
++++ b/regular_module_imports.py
+@@ -1,9 +1,22 @@
+ import os
++
+ import black
+-def add(a, b):
+-    """This is an improperly typed/annotated method with an incomplete docstr"""
++
++
++def add(a: int, b: int) -> int:
++    """
++    This is an improperly typed/annotated method with an incomplete docstr
++
++    :param a:
++    :type a: int
++    :param b:
++    :type b: int
++    :rtype: int
++
++    """
+     return a + b
+ 
++
+ # def add_backup(a, b):
+ #     """This is an improperly typed/annotated method with an incomplete docstr"""
+ #     return a + b
