@@ -147,11 +147,11 @@ def get_filepath(prompt=""):
     return filepath
 
 
-def get_directory_path(prompt="",initialdir=Path(__file__).parent.as_posix()):
+def get_directory_path(prompt="",init_dir=Path(__file__).parent.as_posix()):
     try:
         root = Tk()
         root.withdraw()
-        dir_path = filedialog.askdirectory(title=prompt, initialdir=initialdir)
+        dir_path = filedialog.askdirectory(title=prompt, initialdir=init_dir)
     except Exception as e:
         print(e)
         dir_path = ""
