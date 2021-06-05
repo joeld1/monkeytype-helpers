@@ -15,25 +15,39 @@ This was created in order to quickly be able to perform the following:
 
 Walkthrough of Setup
 ---
+1) Clone repo
+2) Install the following dependencies:
+   - monkeytype
+   - black
+   - isort
+   - pyment (use the github version since the pypi version isn't updated)
+   - pytest
+3) Follow steps in images below
 
-#### Will be updated with text later
+4) ### Create a PyCharm External Tool (*Might differ for PCs*)
+   ![image text](./imgs/001_monkeytype_external_tool_arguments.png)
+   -  *Note, you can hard-code to a specific interpreter, but make sure that that interpreter contains all dependencies found on the script you are running the external tool on*
+   -  *In this example, the script path is hard-coded*
+   ![image text](./imgs/002_external_tools_menu.png)
 
-![image text](./imgs/001-desiredtools.png)
-![image text](./imgs/002-tool-monkeytype_run.png)
-![image text](./imgs/003-tool-monkeytype_stub.png)
-![image text](./imgs/004-tool-monkeytype_apply.png)
-![image text](./imgs/005-tool-monkeytype_apply_ignore_existing_annotations.png)
-![image text](./imgs/006-tool-monkeytype_stub_diff.png)
-![image text](./imgs/007-tool-monkeytype_stub_omit_existing_annotations.png)
-![image text](./imgs/008-tool-generatepymentpatch-reSTtoreST.png)
-![image text](./imgs/009-runmonkeytype_run.png)
-![image text](./imgs/010-runmonkeytype_run-outputsqlitedb.png)
-![image text](./imgs/011-runmonkeytype_run-outputsqlitedb-recordsadded.png)
-![image text](./imgs/012-runmonkeytype_apply_ignore_existing_annotations-pt1.png)
-![image text](./imgs/013-runmonkeytype_apply_ignore_existing_annotations-pt2.png)
-![image text](./imgs/014-runmonkeytype_apply_ignore_existing_annotations-correctedannotations.png)
-![image text](./imgs/015-rungeneratepymentpatchoncorrectedoutput-reSTtoreST.png)
-![image text](./imgs/016-rungeneratepymentpatchoncorrectedoutput-reSTtoreST-result.png)
-![image text](./imgs/017-applypymentpatch-window.png)
-![image text](./imgs/018-applypymentpatch-diff.png)
-![image text](./imgs/019-applypymentpatch-afterapplyingpatch.png)
+5) ### Right-Click and Run External Tool on Module of Interest
+   ![image text](./imgs/003_select_run_and_create_associated_patches.png)
+
+6) ### Select Project Directory the script is a part of (this will contain your monkeytype.sqlite3 db, and your script/package/module must be found somewhere (nested or not) in this folder)
+   ![image text](./imgs/004_select_root_directory_that_will_contain_monkeytypesqlite3_and_contains_module.png)
+   
+   ![image text](./imgs/005_terminal_output.png)
+   -  *Example output shown above*
+   
+   ![image text](./imgs/006_generated_patch.png)
+   -  *Patch for import dependency shown in red on left panel above*
+
+7) ### Right-Click on Patch, Select Apply Patch
+   ![image text](./imgs/007_apply_patch_option.png)
+
+8) ### Select File to Patch and Click on Show Difference
+   ![image text](./imgs/008_apply_patch_window.png)
+
+9) ### Merge Desired Changes =)
+   ![image text](./imgs/009_show_diff.png)
+
