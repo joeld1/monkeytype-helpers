@@ -10,8 +10,15 @@ Purpose
 This was created in order to quickly be able to perform the following:
 1) Infer and add types/annotations onto methods that are not typed properly
    - **Note**: I currently don't know how to use stubs to generate patches to apply, if someone knows, please do leave a comment, so I can apply it :)!
-2) Use the recently generated/corrected types/signature to create patches to apply in order to reformat docstrs for methods
+2) Use the recently generated/corrected method return types and signatures to create patches which contain also contain reformatted docstrings 
 
+Notes
+---
+   - This external tool makes a backup in the same folder of the associated script/module/.py file being imported from the script the external tool is running on. 
+      - I'm not sure how this external tool reacts to improperly formatted .py files, or folders where one does not have write permissions.
+   - Pyment re-formats to `reST` docstrings, but you can change this and other Pyment settings in `monkeytype_run.py` to fit your needs.
+   - Delete the patches found in the patches folder, and run the test `test_monkeytype_run.py` if you're interested in testing/stepping through the code.
+      - You can also test the pycharm external tool by running it on the modules found in this repo.
 
 Walkthrough of Setup
 ---
@@ -20,7 +27,7 @@ Walkthrough of Setup
    - monkeytype
    - black
    - isort
-   - pyment (use the github version since the pypi version isn't updated)
+   - [pyment](https://github.com/dadadel/pyment) (use the github version since the pypi version isn't updated)
    - pytest
 3) Follow steps in images below
 
